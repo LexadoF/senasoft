@@ -1,0 +1,96 @@
+Laravel
+
+Crear proyecto
+composer create-project --prefer-dist laravel/laravel 'nombreArchivo'
+----------------------------------------
+habrir en servidor 
+php artisan serve --es mejor
+
+por local host
+(ruta del archivo)
+-----------------------------------------
+Estructura de carpetas
+
+app --contenido del proyecto
+boostrap --arranca el framework
+config --configuracion del proyecto
+.env la conexion de la base de datos y configuracion
+database -todo lo relacionado de la base de datos
+resources -- las vistas
+routes -- rutas
+vendor -- no tocar
+-----------------------------------------------
+Rutas
+
+ruta de una vista
+Route::get('/inicio', function () {
+    return view('inicio');---vista
+});
+---------------------------------------
+ruta con parametro
+
+Route::get('/registro/{nombre?}', function ($nombre="no se ha enviado un nombre") {
+    return "hola ". $nombre;
+});
+-------------------------------------------------
+rutas con nombre y en lista direcionando a otras rutas
+
+Route::get('empresa', function () {
+    return "seccion empresa";
+})->name('nosotros');
+Route::get('/', function () {
+    echo "<a href='". route('nosotros') ."'>empresa 1</a><br/>";
+    echo "<a href='". route('nosotros') ."'>empresa 2</a><br/>";
+    echo "<a href='". route('nosotros') ."'>empresa 3</a><br/>";
+    echo "<a href='". route('nosotros') ."'>empresa 4</a><br/>";
+    echo "<a href='". route('nosotros') ."'>empresa 5</a><br/>";
+});
+---------------------------------------------------------------------
+migraciones
+
+lista de migraciones
+php artisan list
+-----------------------
+crear tabla migrations
+php artisan migrate:install
+------------------------------
+borrar todas las tablas de la base de datos y luego volverlas a crear
+php artisan migrate:refresh
+---------------------------------
+eliminar las tablas 
+php artisan migrate:reset
+-----------------------------
+deshacer el ultimo grupo de migracion ejecutadas
+php artisan migrate:rollback
+--------------------------------
+verestatus de cada migracion
+php artisan migrate:status
+--------------------------------
+crear tablas
+
+php artisan make:migration create_'nombre de la tabla'_table
+php artisan make:migration create_'nombre de la tabla de bd'_table-create=tb_'remplazar nombre en el codigo'
+php artisan migrate
+---------------------------------------------------
+crear modelo crm(modelo,controlador,migracion)
+php artisan make:model 'nombre del modelo' --crm 
+-------------------------------------------------
+modelos variable importante
+protected $fillable =['nombre de los campos de las tablas']
+------------------------------------------------------------
+paquete de auth
+composer require laravel/ui
+php artisan ui vue --auth
+-----------------------------------------------
+biblioteca
+https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fsway.office.com%2FhbWyKidgdThvpgLH%3Fref%3DLink&data=02%7C01%7Cacarcamoa%40sena.edu.co%7C7cfecbfbb2c14fdab95f08d86ef8919f%7Ccbc2c3812f2e4d9391d1506c9316ace7%7C0%7C0%7C637381362246087989&sdata=Qcr2gX2Y0sL6KHkMLCKmByBlDTtltFmGROPao780hT8%3D&reserved=0
+-------------------------------------------------------
+ link del 14 de octubre
+https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeet.google.com%2Fren-amxm-vnz&data=02%7C01%7Cacarcamoa%40sena.edu.co%7C7cfecbfbb2c14fdab95f08d86ef8919f%7Ccbc2c3812f2e4d9391d1506c9316ace7%7C0%7C0%7C637381362246087989&sdata=j3sSkagyTXHBx1cITODbZfIkyKi417R%2Bx%2BTTLn6kSPg%3D&reserved=0
+---------------------------------------------------------------
+link del 15 de octubre
+https://nam10.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmeet.google.com%2Fsia-cuzw-shr&data=02%7C01%7Cacarcamoa%40sena.edu.co%7C7cfecbfbb2c14fdab95f08d86ef8919f%7Ccbc2c3812f2e4d9391d1506c9316ace7%7C0%7C0%7C637381362246097981&sdata=IQtmIzWQUAEKjaJYrwKS4Tg%2FU%2FDjYtWAmuNodFQ49PQ%3D&reserved=0
+
+
+
+
